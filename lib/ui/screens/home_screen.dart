@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: context.colors.primary,
-        title: Text("Home Screen"),
+        title: Text(context.translations.home_page),
       ),
       body: Center(
         child: Column(
