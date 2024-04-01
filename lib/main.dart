@@ -7,8 +7,10 @@ import 'package:baseflutter/ui/themes/typography.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-void main() {
-  configureDependencies();
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await configureDependencies();
   runApp(const MyApp());
 }
 

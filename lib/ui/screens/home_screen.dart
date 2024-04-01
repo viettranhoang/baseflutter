@@ -1,5 +1,8 @@
 
 import 'package:auto_route/auto_route.dart';
+import 'package:baseflutter/common/logger.dart';
+import 'package:baseflutter/data/feature/feature_repository.dart';
+import 'package:baseflutter/di/di.dart';
 import 'package:baseflutter/ui/utils/build_context_ext.dart';
 import 'package:flutter/material.dart';
 
@@ -21,8 +24,17 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  fetch() async {
+    final repository = getIt<FeatureRepository>();
+
+    final movies = await repository.fetchMovies();
+    final value = movies.asValue?.value;
+    logger.e(value?.first.title);
+  }
+
   @override
   Widget build(BuildContext context) {
+    fetch();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: context.colors.primary,
